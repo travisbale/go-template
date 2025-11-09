@@ -55,7 +55,7 @@ func NewServer(ctx context.Context, config *Config) (*Server, error) {
 	}
 
 	// Create database adapters
-	
+
 	// Create application services
 
 	// Create HTTP server

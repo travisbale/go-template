@@ -23,24 +23,17 @@ var startCmd = &cli.Command{
 		EnvironmentFlag,
 	},
 	Action: func(c *cli.Context) error {
-		// Create server config
-		config := &app.Config{
-			HTTPAddress:      c.String("http-address"),
-			GRPCAddress:      c.String("grpc-address"),
-			DatabaseURL:      c.String("database-url"),
-			JWTPublicKeyPath: c.String("jwt-public-key"),
-			Environment:      c.String("environment"),
-			Logger:           slog.Default(),
-		}
+		// Convert CLI config to app config
+		appConfig := config.ToAppConfig()
 
 		// Create server with our API handlers
-		server, err := app.NewServer(c.Context, config)
+		server, err := app.NewServer(c.Context, appConfig)
 		if err != nil {
 			return err
 		}
 
-		httpAddr := config.HTTPAddress
-		grpcAddr := config.GRPCAddress
+		httpAddr := appConfig.HTTPAddress
+		grpcAddr := appConfig.GRPCAddress
 
 		ctx, cancel := signal.NotifyContext(c.Context, os.Interrupt, syscall.SIGTERM)
 		defer cancel()
