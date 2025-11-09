@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/travisbale/go-template/internal/db/postgres/sqlc"
+	"github.com/travisbale/go-template/internal/db/postgres/internal/sqlc"
 )
 
 type logger interface {
