@@ -9,7 +9,7 @@ require (
 	github.com/jackc/pgx/v5 v5.7.6
 	github.com/travisbale/heimdall v0.0.0-20251106224419-a8f426b34833
 	github.com/urfave/cli/v2 v2.27.7
-	golang.org/x/sync v0.17.0
+	golang.org/x/sync v0.18.0
 	google.golang.org/grpc v1.75.0
 )
 
