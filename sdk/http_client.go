@@ -43,7 +43,7 @@ func NewHTTPClient(baseURL string, logger logger, opts ...Option) *HTTPClient {
 	return c
 }
 
-// Health checks the health of the mercury API
+// Health checks the health of the API service
 func (c *HTTPClient) Health(ctx context.Context) (*HealthResponse, error) {
 	endpoint := fmt.Sprintf("%s/healthz", c.baseURL)
 
